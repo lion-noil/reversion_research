@@ -6,3 +6,10 @@ __pycache__/
 figures/
 # 일부 라이브러리가 만든 잔여 폴더
 NVIDIA Corporation/
+# 백테스트 stdout 로그·임시(재생성 가능)
+*.log
+*_tmp.pkl
+# 스윕 풀그리드 덤프(로컬 보존, 재생성 가능 — best JSON만 커밋)
+*_all.csv
+# 데이터 백업(.bak) 포함 데이터 폴더 전체
+data/

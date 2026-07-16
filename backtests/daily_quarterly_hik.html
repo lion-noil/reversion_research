@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일봉 4전략 분기별 (K2~8 촘촘)</title>
+<style>
+:root{--bg:#0f1115;--surf:#171a21;--line:#262b36;--txt:#e6e8ec;--mut:#9aa3b2;--grn:#4ec27a;--red:#e2574b;--ac:#4f8cff;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:13px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;padding:16px 18px}
+h1{font-size:17px;margin:0 0 2px}.sub{color:var(--mut);font-size:12px;margin:0 0 12px}
+.tag{display:inline-block;background:#1d2530;border:1px solid var(--line);border-radius:6px;padding:1px 8px;margin-right:5px;font-size:12px}
+table{border-collapse:collapse;white-space:nowrap}
+.sum{width:100%;font-size:12px;margin-bottom:14px}
+.sum th,.sum td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:right}
+.sum th{background:var(--surf);color:var(--mut);font-weight:500;position:sticky;top:0}
+.sum td.s{text-align:left;font-weight:600;cursor:pointer;color:var(--ac)}
+.sum tr:hover{background:#1b1f28}
+.pos{color:var(--grn)}.neg{color:var(--red)}.dim{color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.card h3{margin:0 0 2px;font-size:14px}
+.qt{width:100%;font-size:11.5px}
+.qt th,.qt td{padding:3px 6px;text-align:right;border-bottom:1px solid #20242e}
+.qt th{color:var(--mut);font-weight:500;position:sticky;top:0;background:var(--surf)}
+.qt td.q{text-align:left;color:var(--mut)}
+.scroll{max-height:360px;overflow:auto}
+.ov{font-size:12px;margin:2px 0 6px}
+.b-ok{color:var(--grn)}.b-no{color:var(--red)}.b-mid{color:#e6c878}
+#detail h2{font-size:15px;margin:16px 0 8px}
+</style></head><body>
+<h1>일봉 4전략 × 분기별 (MT5 비환율 10종)</h1>
+<p class="sub"><span class="tag">MA 90일</span><span class="tag">10년(2015~)</span><span class="tag">동시보유·진입쿨다운</span><span class="tag">최대보유15일</span><span class="tag">K 1.0~8</span><span class="tag">B −3~3</span><span class="tag">연≥10거래</span><span class="tag">중첩≤15</span><span class="tag">fee0.11%</span> · 셀=기대%/PF · 심볼 클릭=분기상세</p>
+<div style="overflow:auto;max-height:380px"><table class="sum"><thead><tr id="sh"></tr></thead><tbody id="sb"></tbody></table></div>
+<div id="detail"></div>
+<script>
+const DIRS=[['S1_long','S1 추세롱'],['S1_short','S1 추세숏'],['S2_long','S2 역추세롱'],['S2_short','S2 역추세숏']];
+const $=s=>document.querySelector(s);
+function cls(e){return e>0?'pos':(e<0?'neg':'dim')}
+function cell(r){return r?`<span class="${cls(r.exp)}">${r.exp>0?'+':''}${r.exp}%</span>/<b>${r.pf}</b>`:'<span class="dim">-</span>'}
+let DATA={};
+function summary(){
+  $('#sh').innerHTML='<th style="text-align:left">심볼</th>'+DIRS.map(d=>`<th>${d[1]}</th>`).join('')+'<th>최적</th>';
+  $('#sb').innerHTML=Object.keys(DATA).map(s=>{
+    const row=DATA[s]; let best=null,bk=null;
+    DIRS.forEach(d=>{const r=row[d[0]]; if(r&&(!best||r.exp>best.exp)){best=r;bk=d[1];}});
+    return `<tr><td class="s" onclick="detail('${s}')">${s}</td>`+
+      DIRS.map(d=>`<td>${cell(row[d[0]])}</td>`).join('')+
+      `<td class="dim">${best?bk+' '+(best.exp>0?'+':'')+best.exp+'%':'-'}</td></tr>`;
+  }).join('');
+}
+function qrows(r){
+  if(!r)return '<div class="dim" style="padding:6px">조합 없음(표본<30)</div>';
+  const bc= r.exp>0&&r.pf>=1.5?'b-ok':(r.exp>0?'b-mid':'b-no');
+  let h=`<div class="ov">K1 ${r.k1} / B ${r.b} / 쿨다운 ${r.cd}일 · <span class="${bc}">전체 ${r.n}건(${r.gpy}/yr) 승${r.wr}% PF${r.pf} 기대<span class="${cls(r.exp)}">${r.exp>0?'+':''}${r.exp}%</span> 누적${r.cum}% 중복${r.maxc}</span></div>`;
+  h+='<div class="scroll"><table class="qt"><thead><tr><th>분기</th><th>n</th><th>승%</th><th>PF</th><th>기대</th></tr></thead><tbody>';
+  h+=r.quarters.map(q=>`<tr><td class="q">${q.q}</td><td>${q.n}</td><td>${q.wr}</td><td>${q.pf}</td><td class="${cls(q.exp)}">${q.exp>0?'+':''}${q.exp}</td></tr>`).join('');
+  return h+'</tbody></table></div>';
+}
+function detail(s){
+  const row=DATA[s];
+  $('#detail').innerHTML=`<h2>${s} — 4전략 분기별 (10년)</h2><div class="cards">`+
+    DIRS.map(d=>`<div class="card"><h3>${d[1]}</h3>${qrows(row[d[0]])}</div>`).join('')+'</div>';
+  window.scrollTo({top:$('#detail').offsetTop-10,behavior:'smooth'});
+}
+fetch('daily_quarterly_mt5.json').then(r=>r.json()).then(d=>{DATA=d;summary();detail(Object.keys(d)[0]);})
+ .catch(e=>$('#sb').innerHTML=`<tr><td style="color:var(--red)">로드 실패: ${e}</td></tr>`);
+</script></body></html>
