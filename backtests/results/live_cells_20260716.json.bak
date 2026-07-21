@@ -1,0 +1,1032 @@
+{
+ "s11": [
+  {
+   "strategy": "s11",
+   "candle_interval": "1",
+   "max_hold_sec": 1209600,
+   "params": {
+    "BTCUSDT": {
+     "long": {
+      "win": 1440,
+      "k1": 6.0,
+      "b": 0.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "ETHUSDT": {
+     "long": {
+      "win": 720,
+      "k1": 6.0,
+      "b": -3.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "SOLUSDT": {
+     "long": {
+      "win": 1440,
+      "k1": 5.5,
+      "b": 2.5,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "XAUTUSDT": {
+     "long": {
+      "win": 1440,
+      "k1": 4.0,
+      "b": -2.5,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200
+     }
+    },
+    "XRPUSDT": {
+     "short": {
+      "win": 720,
+      "k1": 5.0,
+      "b": -0.5,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s12",
+   "candle_interval": "1",
+   "max_hold_sec": 1209600,
+   "params": {
+    "BTCUSDT": {
+     "long": {
+      "win": 1320,
+      "k1": 5.0,
+      "b": -1.0,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "XAUTUSDT": {
+     "long": {
+      "win": 1440,
+      "k1": 4.25,
+      "b": -3.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s13",
+   "candle_interval": "1",
+   "max_hold_sec": 172800,
+   "params": {
+    "BTCUSDT": {
+     "long": {
+      "m_min": 60,
+      "drop_pct": 0.04,
+      "retr_mult": 1.5,
+      "hold_sec": 172800,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "ETHUSDT": {
+     "long": {
+      "m_min": 30,
+      "drop_pct": 0.04,
+      "hold_sec": 86400,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "SOLUSDT": {
+     "long": {
+      "m_min": 15,
+      "drop_pct": 0.05,
+      "hold_sec": 86400,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "XRPUSDT": {
+     "long": {
+      "m_min": 30,
+      "drop_pct": 0.05,
+      "hold_sec": 86400,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    }
+   }
+  }
+ ],
+ "s22": [
+  {
+   "strategy": "s11",
+   "candle_interval": "240",
+   "max_hold_sec": 1296000,
+   "params": {
+    "BTCUSDT": {
+     "long": {
+      "win": 240,
+      "k1": 3.25,
+      "b": -2.5,
+      "cooldown_sec": 86400,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "XRPUSDT": {
+     "long": {
+      "win": 240,
+      "k1": 4.0,
+      "b": -3.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s12",
+   "candle_interval": "240",
+   "max_hold_sec": 1296000,
+   "params": {
+    "SOLUSDT": {
+     "long": {
+      "win": 240,
+      "k1": 2.75,
+      "b": -1.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "XRPUSDT": {
+     "long": {
+      "win": 240,
+      "k1": 3.0,
+      "b": 1.5,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s14",
+   "candle_interval": "240",
+   "max_hold_sec": 1296000,
+   "params": {
+    "ETHUSDT": {
+     "long": {
+      "ewz_s": 200,
+      "k1": 3.0,
+      "cooldown_sec": 86400,
+      "hold_sec": 1296000,
+      "max_concurrent": 200
+     },
+     "short": {
+      "ewz_s": 50,
+      "k1": 2.5,
+      "cooldown_sec": 86400,
+      "hold_sec": 259200,
+      "max_concurrent": 200
+     }
+    },
+    "SOLUSDT": {
+     "long": {
+      "ewz_s": 20,
+      "k1": 3.0,
+      "cooldown_sec": 86400,
+      "hold_sec": 864000,
+      "max_concurrent": 200
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s13",
+   "candle_interval": "240",
+   "max_hold_sec": 864000,
+   "params": {
+    "XRPUSDT": {
+     "long": {
+      "m_min": 12,
+      "drop_pct": 0.15,
+      "retr_mult": 1.5,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    }
+   }
+  }
+ ],
+ "s33": [
+  {
+   "strategy": "s3",
+   "candle_interval": "D",
+   "max_hold_sec": 1296000,
+   "params": {
+    "BTCUSDT": {
+     "long": {
+      "win": 90,
+      "k1": 2.5,
+      "b": -2.0,
+      "cooldown_sec": 172800,
+      "max_concurrent": 8
+     },
+     "short": {
+      "win": 90,
+      "k1": 2.4,
+      "b": 0.2,
+      "cooldown_sec": 86400,
+      "max_concurrent": 10
+     }
+    },
+    "ETHUSDT": {
+     "long": {
+      "win": 60,
+      "k1": 2.5,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 11
+     },
+     "short": {
+      "win": 90,
+      "k1": 1.6,
+      "b": -0.8,
+      "cooldown_sec": 432000,
+      "max_concurrent": 3
+     }
+    },
+    "SOLUSDT": {
+     "long": {
+      "win": 90,
+      "k1": 2.9,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     },
+     "short": {
+      "win": 90,
+      "k1": 1.7,
+      "b": 0.2,
+      "cooldown_sec": 172800,
+      "max_concurrent": 8
+     }
+    },
+    "XRPUSDT": {
+     "long": {
+      "win": 90,
+      "k1": 3.1,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     },
+     "short": {
+      "win": 90,
+      "k1": 1.6,
+      "b": -1.4,
+      "cooldown_sec": 432000,
+      "max_concurrent": 3
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s4",
+   "candle_interval": "D",
+   "max_hold_sec": 1296000,
+   "params": {
+    "BTCUSDT": {
+     "long": {
+      "win": 150,
+      "k1": 1.1,
+      "b": 0.8,
+      "cooldown_sec": 864000,
+      "max_concurrent": 2
+     }
+    },
+    "ETHUSDT": {
+     "long": {
+      "win": 200,
+      "k1": 1.9,
+      "b": -0.4,
+      "cooldown_sec": 172800,
+      "max_concurrent": 8
+     },
+     "short": {
+      "win": 200,
+      "k1": 2.6,
+      "b": 2.2,
+      "cooldown_sec": 86400,
+      "max_concurrent": 10
+     }
+    },
+    "SOLUSDT": {
+     "long": {
+      "win": 200,
+      "k1": 1.8,
+      "b": 0.4,
+      "cooldown_sec": 86400,
+      "max_concurrent": 15
+     }
+    },
+    "XRPUSDT": {
+     "long": {
+      "win": 200,
+      "k1": 1.6,
+      "b": -1.4,
+      "cooldown_sec": 172800,
+      "max_concurrent": 8
+     },
+     "short": {
+      "win": 200,
+      "k1": 1.1,
+      "b": 0.2,
+      "cooldown_sec": 604800,
+      "max_concurrent": 3
+     }
+    }
+   }
+  }
+ ],
+ "s11m": [
+  {
+   "strategy": "s11",
+   "candle_interval": "1",
+   "max_hold_sec": 1209600,
+   "params": {
+    "JP225": {
+     "long": {
+      "win": 1440,
+      "k1": 4.0,
+      "b": -1.5,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "US100": {
+     "long": {
+      "win": 1440,
+      "k1": 5.5,
+      "b": -3.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "GER40": {
+     "long": {
+      "win": 1440,
+      "k1": 3.75,
+      "b": -3.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "UK100": {
+     "long": {
+      "win": 1440,
+      "k1": 3.75,
+      "b": -3.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "XAGUSD": {
+     "long": {
+      "win": 1320,
+      "k1": 4.75,
+      "b": -2.5,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "WTI": {
+     "long": {
+      "win": 720,
+      "k1": 4.5,
+      "b": -2.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "USDJPY": {
+     "long": {
+      "win": 1440,
+      "k1": 4.5,
+      "b": -2.5,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "BTCUSD": {
+     "long": {
+      "win": 1440,
+      "k1": 6.0,
+      "b": 0.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "ETHUSD": {
+     "long": {
+      "win": 720,
+      "k1": 6.0,
+      "b": -3.0,
+      "cooldown_sec": 10800,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s12",
+   "candle_interval": "1",
+   "max_hold_sec": 1209600,
+   "params": {
+    "BTCUSD": {
+     "long": {
+      "win": 1320,
+      "k1": 5.0,
+      "b": -1.0,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "HK50": {
+     "long": {
+      "win": 2880,
+      "k1": 3.5,
+      "b": 2.0,
+      "cooldown_sec": 3600,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s13",
+   "candle_interval": "1",
+   "max_hold_sec": 259200,
+   "params": {
+    "JP225": {
+     "long": {
+      "m_min": 240,
+      "drop_pct": 0.03,
+      "hold_sec": 172800,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "HK50": {
+     "long": {
+      "m_min": 120,
+      "drop_pct": 0.02,
+      "hold_sec": 259200,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "USDJPY": {
+     "long": {
+      "m_min": 120,
+      "drop_pct": 0.01,
+      "hold_sec": 172800,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "BTCUSD": {
+     "long": {
+      "m_min": 60,
+      "drop_pct": 0.04,
+      "retr_mult": 1.5,
+      "hold_sec": 172800,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    },
+    "ETHUSD": {
+     "long": {
+      "m_min": 30,
+      "drop_pct": 0.04,
+      "hold_sec": 86400,
+      "cooldown_sec": 1800,
+      "max_concurrent": 12
+     }
+    }
+   }
+  }
+ ],
+ "s22m": [
+  {
+   "strategy": "s11",
+   "candle_interval": "240",
+   "max_hold_sec": 1296000,
+   "params": {
+    "JP225": {
+     "long": {
+      "win": 120,
+      "k1": 3.0,
+      "b": 1.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "HK50": {
+     "long": {
+      "win": 180,
+      "k1": 3.0,
+      "b": -2.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s12",
+   "candle_interval": "240",
+   "max_hold_sec": 1296000,
+   "params": {
+    "US100": {
+     "long": {
+      "win": 180,
+      "k1": 3.0,
+      "b": 1.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "HK50": {
+     "long": {
+      "win": 180,
+      "k1": 3.0,
+      "b": 1.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "USDJPY": {
+     "long": {
+      "win": 120,
+      "k1": 2.5,
+      "b": 1.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200,
+      "no_sl": true
+     }
+    },
+    "AUDUSD": {
+     "short": {
+      "win": 30,
+      "k1": 3.0,
+      "b": -2.0,
+      "cooldown_sec": 43200,
+      "max_concurrent": 200
+     }
+    },
+    "NZDUSD": {
+     "short": {
+      "win": 60,
+      "k1": 3.0,
+      "b": -1.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 200
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s14",
+   "candle_interval": "240",
+   "max_hold_sec": 1296000,
+   "params": {
+    "XAGUSD": {
+     "long": {
+      "ewz_s": 200,
+      "k1": 2.5,
+      "ewz_rev": true,
+      "cooldown_sec": 86400,
+      "hold_sec": 432000,
+      "max_concurrent": 200
+     },
+     "short": {
+      "ewz_s": 50,
+      "k1": 3.0,
+      "cooldown_sec": 86400,
+      "hold_sec": 259200,
+      "max_concurrent": 200
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s13",
+   "candle_interval": "240",
+   "max_hold_sec": 864000,
+   "params": {
+    "JP225": {
+     "long": {
+      "m_min": 18,
+      "drop_pct": 0.05,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    },
+    "US100": {
+     "long": {
+      "m_min": 30,
+      "drop_pct": 0.07,
+      "retr_mult": 1.5,
+      "hold_sec": 432000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    },
+    "UK100": {
+     "long": {
+      "m_min": 12,
+      "drop_pct": 0.03,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    },
+    "XAUUSD": {
+     "long": {
+      "m_min": 6,
+      "drop_pct": 0.03,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    },
+    "WTI": {
+     "long": {
+      "m_min": 6,
+      "drop_pct": 0.07,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s15",
+   "candle_interval": "240",
+   "max_hold_sec": 864000,
+   "params": {
+    "JP225": {
+     "long": {
+      "sweep_n": 120,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    },
+    "USDCAD": {
+     "long": {
+      "sweep_n": 120,
+      "hold_sec": 864000,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    }
+   }
+  }
+ ],
+ "s33m": [
+  {
+   "strategy": "s3",
+   "candle_interval": "D",
+   "max_hold_sec": 1296000,
+   "params": {
+    "BTCUSD": {
+     "long": {
+      "win": 90,
+      "k1": 2.5,
+      "b": -2.0,
+      "cooldown_sec": 172800,
+      "max_concurrent": 8
+     },
+     "short": {
+      "win": 90,
+      "k1": 2.4,
+      "b": -0.2,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    },
+    "ETHUSD": {
+     "long": {
+      "win": 60,
+      "k1": 2.8,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     },
+     "short": {
+      "win": 60,
+      "k1": 2.0,
+      "b": 0.0,
+      "cooldown_sec": 172800,
+      "max_concurrent": 7
+     }
+    },
+    "XAGUSD": {
+     "long": {
+      "win": 250,
+      "k1": 2.9,
+      "b": 1.0,
+      "cooldown_sec": 432000,
+      "max_concurrent": 8
+     }
+    },
+    "XAUUSD": {
+     "long": {
+      "win": 150,
+      "k1": 2.6,
+      "b": 0.2,
+      "cooldown_sec": 259200,
+      "max_concurrent": 8
+     }
+    },
+    "WTI": {
+     "short": {
+      "win": 90,
+      "k1": 2.3,
+      "b": 2.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 8
+     }
+    },
+    "JP225": {
+     "long": {
+      "win": 200,
+      "k1": 2.7,
+      "b": 1.4,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s4",
+   "candle_interval": "D",
+   "max_hold_sec": 1296000,
+   "params": {
+    "BTCUSD": {
+     "long": {
+      "win": 200,
+      "k1": 1.0,
+      "b": -3.0,
+      "cooldown_sec": 432000,
+      "max_concurrent": 3
+     }
+    },
+    "ETHUSD": {
+     "long": {
+      "win": 200,
+      "k1": 1.9,
+      "b": -0.4,
+      "cooldown_sec": 86400,
+      "max_concurrent": 15
+     }
+    },
+    "XAGUSD": {
+     "long": {
+      "win": 90,
+      "k1": 99.0,
+      "b": -1.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     }
+    },
+    "XAUUSD": {
+     "short": {
+      "win": 200,
+      "k1": 2.8,
+      "b": 1.2,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    },
+    "WTI": {
+     "long": {
+      "win": 200,
+      "k1": 99.0,
+      "b": 0.8,
+      "cooldown_sec": 432000,
+      "max_concurrent": 3
+     }
+    },
+    "US100": {
+     "long": {
+      "win": 150,
+      "k1": 2.0,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 11
+     }
+    },
+    "JP225": {
+     "long": {
+      "win": 200,
+      "k1": 2.0,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    },
+    "GER40": {
+     "long": {
+      "win": 90,
+      "k1": 2.6,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    },
+    "UK100": {
+     "long": {
+      "win": 90,
+      "k1": 1.7,
+      "b": -0.8,
+      "cooldown_sec": 172800,
+      "max_concurrent": 7
+     },
+     "short": {
+      "win": 250,
+      "k1": 2.3,
+      "b": 1.0,
+      "cooldown_sec": 432000,
+      "max_concurrent": 8
+     }
+    },
+    "HK50": {
+     "long": {
+      "win": 200,
+      "k1": 1.8,
+      "b": -3.0,
+      "cooldown_sec": 259200,
+      "max_concurrent": 5
+     },
+     "short": {
+      "win": 150,
+      "k1": 2.2,
+      "b": 2.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 8
+     }
+    }
+   }
+  }
+ ],
+ "s33f": [
+  {
+   "strategy": "s3",
+   "candle_interval": "D",
+   "max_hold_sec": 1296000,
+   "params": {
+    "USDJPY": {
+     "long": {
+      "win": 120,
+      "k1": 2.9,
+      "b": -1.4,
+      "cooldown_sec": 432000,
+      "max_concurrent": 8
+     }
+    }
+   }
+  },
+  {
+   "strategy": "s4",
+   "candle_interval": "D",
+   "max_hold_sec": 1296000,
+   "params": {
+    "EURUSD": {
+     "long": {
+      "win": 120,
+      "k1": 2.9,
+      "b": -0.6,
+      "cooldown_sec": 86400,
+      "max_concurrent": 8
+     }
+    },
+    "GBPUSD": {
+     "long": {
+      "win": 150,
+      "k1": 2.4,
+      "b": 1.6,
+      "cooldown_sec": 86400,
+      "max_concurrent": 12
+     },
+     "short": {
+      "win": 150,
+      "k1": 2.1,
+      "b": 0.6,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    },
+    "USDJPY": {
+     "long": {
+      "win": 150,
+      "k1": 2.1,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     }
+    },
+    "AUDUSD": {
+     "long": {
+      "win": 200,
+      "k1": 2.6,
+      "b": -3.0,
+      "cooldown_sec": 259200,
+      "max_concurrent": 8
+     },
+     "short": {
+      "win": 90,
+      "k1": 1.8,
+      "b": 0.2,
+      "cooldown_sec": 259200,
+      "max_concurrent": 5
+     }
+    },
+    "USDCAD": {
+     "long": {
+      "win": 200,
+      "k1": 2.3,
+      "b": 1.8,
+      "cooldown_sec": 86400,
+      "max_concurrent": 8
+     }
+    },
+    "USDCHF": {
+     "long": {
+      "win": 200,
+      "k1": 2.3,
+      "b": -0.6,
+      "cooldown_sec": 86400,
+      "max_concurrent": 13
+     },
+     "short": {
+      "win": 200,
+      "k1": 99.0,
+      "b": -0.2,
+      "cooldown_sec": 259200,
+      "max_concurrent": 5
+     }
+    },
+    "NZDUSD": {
+     "long": {
+      "win": 250,
+      "k1": 2.9,
+      "b": -3.0,
+      "cooldown_sec": 86400,
+      "max_concurrent": 8
+     },
+     "short": {
+      "win": 150,
+      "k1": 1.4,
+      "b": -1.2,
+      "cooldown_sec": 172800,
+      "max_concurrent": 7
+     }
+    }
+   }
+  }
+ ]
+}
