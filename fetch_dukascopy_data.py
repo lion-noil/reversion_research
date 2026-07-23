@@ -62,6 +62,10 @@ SYMBOL_MAP: dict[str, str] = {
     "USDCAD": "usdcad",          # 달러/캐나다달러 (WTI 상관 주의)
     "USDCHF": "usdchf",          # 달러/스위스프랑 (EURUSD 역상관 주의)
     "NZDUSD": "nzdusd",          # 뉴질랜드달러/달러 (AUDUSD 고상관 주의)
+    # ── 채권 선물 CFD (HFM Bonds 그룹, 2026-07-24 추가) ──
+    "EUBUND": "bundtreur",       # 유로 분트(독일 10년) — HFM EUBUND.F
+    "UKGILT": "ukgilttrgbp",     # 영국 길트 — HFM UKGILT.F
+    "US10YR": "ustbondtrusd",    # ⚠️ Dukascopy는 US T-Bond(30년) — HFM US10YR.F(10년)의 프록시
 }
 
 # 기본 대상 = 라이브 MT5 10심볼 (fetch_mt5_data.py와 동일 집합)
