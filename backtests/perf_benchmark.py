@@ -57,7 +57,7 @@ def main():
                     segs = ["BYBIT"] if bybit else ["MT5-환율" if sym in FX else "MT5-비환율", "MT5"]
                     for g in segs:
                         cells[g] += 1
-                        trades[g].extend((ex, r * 100 * sz, r * 100) for _, ex, r in tr)
+                        trades[g].extend((ex, r * 100 * sz, r * 100, en) for en, ex, r in tr)
 
     last_exit = max(t[0] for v in trades.values() for t in v)
     m0, m1 = month_key(T5Y) + 1, month_key(last_exit) - 1          # 첫·마지막 부분월 제외
@@ -70,10 +70,18 @@ def main():
         raw = np.array([t[2] for t in tr])
         monthly = defaultdict(float)
         daily = np.zeros(d1 - d0 + 1)
-        for ex, c, _ in tr:
+        m_daily = defaultdict(lambda: defaultdict(float))     # 달 → 일 → 기여% (달 안 낙폭용)
+        m_entries = defaultdict(int)                          # 진입월 기준 건수
+        for ex, c, _, en in tr:
             monthly[month_key(ex)] += c
             daily[ex // DAY - d0] += c
+            m_daily[month_key(ex)][ex // DAY] += c
+            m_entries[month_key(en)] += 1
         ms = np.array([monthly.get(m, 0.0) for m in range(m0, m1 + 1)])
+        # 달별 분포: 그 달 안에서(월초 0 기준) 일별 누적의 고점 대비 최대 하락, 진입 건수
+        mdds = np.array([drawdown(np.array([m_daily[m][d] for d in sorted(m_daily[m])]))[0] if m_daily.get(m) else 0.0
+                         for m in range(m0, m1 + 1)])
+        ments = np.array([m_entries.get(m, 0) for m in range(m0, m1 + 1)])
         mdd, dd95, uw = drawdown(daily)
         years = (last_exit - T5Y) / (365.25 * DAY)
         out["segments"][g] = {
@@ -85,6 +93,12 @@ def main():
             "month_mean": round(float(ms.mean()), 2), "month_median": round(float(np.median(ms)), 2),
             "month_neg_ratio": round(100 * float((ms < 0).mean()), 0), "month_worst": round(float(ms.min()), 2),
             "mdd": round(mdd, 2), "dd_p95": round(dd95, 2), "underwater_max_days": uw,
+            # 달 단위 기준(성적표 월별 행 판정): 달 안 낙폭 중앙·95백분위·최악, 월 진입 건수 5·50·95백분위·최소·최대
+            "month_dd": {"p50": round(float(np.median(mdds)), 2), "p95": round(float(np.percentile(mdds, 95)), 2),
+                         "max": round(float(mdds.max()), 2)},
+            "month_entries": {"p5": round(float(np.percentile(ments, 5)), 0), "p50": round(float(np.median(ments)), 0),
+                              "p95": round(float(np.percentile(ments, 95)), 0), "min": int(ments.min()), "max": int(ments.max())},
+            "month_pct": {"p5": round(float(np.percentile(ms, 5)), 2), "p95": round(float(np.percentile(ms, 95)), 2)},
         }
     js = json.dumps(out, ensure_ascii=False, indent=1)
     for path in (os.path.join(HERE, 'results', 'PERF_BENCHMARK.json'), OUT_APP):
