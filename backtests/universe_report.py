@@ -193,7 +193,7 @@ def want(uni, sym):
 BOOK_FRAC = {
     'U1': {'s11': 0.05, 's22': 0.05, 's33': 0.02},
     'U2': {'s11m': 0.01, 's22m': 0.01, 's33m': 0.02},
-    'U3': {'s11m': 0.01, 's22m': 0.01, 's33f': 0.05},
+    'U3': {'s11m': 0.01, 's22m': 0.01, ('s33f' if 's33f' in LIVE else 's33m'): 0.05},   # FX 일봉은 07-21 s33m 으로 흡수
 }[UNI]
 
 trades = []
@@ -215,7 +215,7 @@ for book, frac in BOOK_FRAC.items():
                     tl = []
                 fr = frac
                 if book == 's22m' and tag == 's13' and sym == 'WTI': fr = frac * 0.5
-                trades += [(en, ex, r, sym, sd_, ep, book, fr) for en, ex, r, sym, sd_, ep, bk in tl]
+                trades += [(en, ex, r, sym, sd_, ep, book, fr, tag, iv) for en, ex, r, sym, sd_, ep, bk in tl]  # +tag,iv (09-30 프랍 셀 식별용)
 
 trades = [t for t in trades if t[0] >= T5Y]
 trades.sort()
@@ -284,7 +284,7 @@ for hour in range(t0, t1 + 1):
             if no is not None: eq += no * trades[i][2]; expo -= no
     un = 0.0; cbk = defaultdict(int)
     for i, no in open_.items():
-        en, ex, r, sym, side, ep, bk, fr = trades[i]
+        en, ex, r, sym, side, ep, bk, fr = trades[i][:8]
         m = mark(sym, hour, side, ep)
         un += no * side * (m / ep - 1.0)
         cbk[bk] += 1

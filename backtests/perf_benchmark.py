@@ -105,6 +105,8 @@ def main():
         open(path, 'w', encoding='utf-8').write(js)
         print(f"[saved] {os.path.abspath(path)}")
     print(js)
+    import perf_mtm_benchmark          # 평가손 기준(segments[*].mtm)도 같이 갱신 — 위에서 파일을 새로 썼으므로
+    perf_mtm_benchmark.main()
 
 
 if __name__ == "__main__":
