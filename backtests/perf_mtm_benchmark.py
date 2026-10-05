@@ -3,7 +3,7 @@
 '평가낙폭(월중 평가액 고점 대비)'과 '일최대 낙폭(하루 시작 평가액 대비 최저)'의 분포를 낸다.
 
 엔진 = prop_sim.load_trades/simulate_equity (universe_report 셀·MTM 마크: 보유 포지션을 그 시간 최악가로 평가 — 보수적).
-사이징 = 라이브: U1 ×1(5%/2%) · U2 ×3.5(3.5%/7%) · U3 ×2.3(2.3%/11.5%).  하루 경계 = 07:00 KST(성적표 equity_hist 와 동일).
+사이징 = 라이브: U1 ×1(5%/2%) · U2 ×3.5(3.5%/7%) · U3 ×5.75(5.75%/28.75%, 10-05 ×2.5).  하루 경계 = 07:00 KST(성적표 equity_hist 와 동일).
 usage: py -3 backtests/perf_mtm_benchmark.py   → PERF_BENCHMARK.json(results·News_scrap/app) 의 segments[*].mtm 갱신
        (perf_benchmark.py 가 끝에 자동 호출)
 """
@@ -16,7 +16,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-UNIVERSES = {"BYBIT": ("U1", 1.0), "MT5-비환율": ("U2", 3.5), "MT5-환율": ("U3", 2.3)}
+UNIVERSES = {"BYBIT": ("U1", 1.0), "MT5-비환율": ("U2", 3.5), "MT5-환율": ("U3", 5.75)}   # U3: 2026-10-05 ×2.5 (구 2.3)
 PATHS = [os.path.join(HERE, "results", "PERF_BENCHMARK.json"),
          os.path.join(HERE, "..", "..", "News_scrap", "app", "perf_benchmark.json")]
 DAY_SHIFT_H = 2      # 07:00 KST = 22:00 UTC → (hour + 2) // 24 가 하루 번호
