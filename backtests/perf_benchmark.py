@@ -94,7 +94,7 @@ def main():
             "month_neg_ratio": round(100 * float((ms < 0).mean()), 0), "month_worst": round(float(ms.min()), 2),
             "mdd": round(mdd, 2), "dd_p95": round(dd95, 2), "underwater_max_days": uw,
             # 달 단위 기준(성적표 월별 행 판정): 달 안 낙폭 중앙·95백분위·최악, 월 진입 건수 5·50·95백분위·최소·최대
-            "month_dd": {"p50": round(float(np.median(mdds)), 2), "p95": round(float(np.percentile(mdds, 95)), 2),
+            "month_dd": {"mean": round(float(mdds.mean()), 2), "p50": round(float(np.median(mdds)), 2), "p95": round(float(np.percentile(mdds, 95)), 2),
                          "max": round(float(mdds.max()), 2)},
             "month_entries": {"p5": round(float(np.percentile(ments, 5)), 0), "p50": round(float(np.median(ments)), 0),
                               "p95": round(float(np.percentile(ments, 95)), 0), "min": int(ments.min()), "max": int(ments.max())},
