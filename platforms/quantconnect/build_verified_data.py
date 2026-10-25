@@ -176,7 +176,8 @@ def main():
     body = re.sub(r"^# .*\n", "", body, count=1)
     ytxt = " / ".join(f"{y['year']} {y['ret']:+.1f}%" for y in yearly)
     md = (
-        f"# 외부 재현 검증 — QuantConnect 독립 백테스트 (환율 셀 17개, {label})\n\n"
+        f"# 환율 메이저 유니버스(17셀) 외부 재현 검증 — QuantConnect 독립 백테스트\n\n"
+        f"**검증일 {label}** (QuantConnect 실행일). 유니버스 단위 기록이라 재검증하면 이 글이 갱신됩니다.\n\n"
         f"라이브 환율 봇의 규칙 17개 셀을 QuantConnect LEAN 엔진용으로 다시 구현해 **다른 데이터(Oanda 분봉)·다른 엔진·다른 체결 모델**로 돌린 결과입니다. "
         f"기간 {data['meta']['start']} ~ {data['meta']['end']}, 거래일 {data['meta']['tradeable_days']}일. "
         f"결과 원본(자본곡선·월별 통계·청산 거래 {data['stats']['closed_trades']}건)은 QuantConnect API에서 내려받아 이 사이트에 보관합니다 — "

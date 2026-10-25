@@ -3,7 +3,7 @@
 입력: results/verify_<label>.md + results/verify_<label>.data.json (build_verified_data.py) + 사이트 verified.json 의 주의문.
 발행은 News_scrap 컨테이너(news-scrap)의 report_store.publish_report 로 한다(Upstash 자격증명이 거기에만 있음):
   docker cp 로 두 파일을 컨테이너 /tmp 에 넣고 python -c 로 호출. 같은 kind:label 은 덮어씀.
-usage: py -3 platforms/quantconnect/publish_verify_report.py [--label 2026-10-18] [--dry]
+usage: py -3 platforms/quantconnect/publish_verify_report.py [--label 2026-10-18(검증일)] [--universe fx-majors] [--dry]
 """
 import os, sys, json, subprocess, tempfile
 
@@ -35,10 +35,14 @@ def main():
     q = json.load(open(SITE_V, encoding="utf-8"))["quantconnect"]
     data["caveats"] = q.get("caveats") or []
     data["expectation"] = q.get("expectation") or ""
-    title = f"외부 재현 검증 — QuantConnect 독립 백테스트 (환율 17셀, {label})"
+    # 보고서 id = verify:<유니버스> (날짜 아님) — "이 유니버스가 이 날짜에 외부에서 재현됐다"는 기록이라 재검증 시 같은 글을 덮어쓴다.
+    universe = arg("--universe", "fx-majors")
+    data["verified_at"] = label
+    data["universe"] = universe
+    title = "환율 메이저 유니버스(17셀) 외부 재현 검증 — QuantConnect 독립 백테스트"
     st = data["stats"]
-    subtitle = f"{data['meta']['start']}~{data['meta']['end']} · 순이익 {st['net_profit_pct']:+.0f}% · CAGR {st['cagr_pct']:.1f}% · 낙폭 {st['max_dd_pct']:.1f}% · 17셀 건수 ±10% 일치"
-    payload = {"kind": "verify", "label": label, "md": md, "title": title, "subtitle": subtitle, "data": data}
+    subtitle = f"검증일 {label} · 백테스트 {data['meta']['start']}~{data['meta']['end']} · 순이익 {st['net_profit_pct']:+.0f}% · CAGR {st['cagr_pct']:.1f}% · 낙폭 {st['max_dd_pct']:.1f}% · 17셀 건수 ±10% 일치"
+    payload = {"kind": "verify", "label": universe, "md": md, "title": title, "subtitle": subtitle, "data": data}
     tmp = os.path.join(tempfile.gettempdir(), f"verify_{label}.payload.json")
     json.dump(payload, open(tmp, "w", encoding="utf-8"), ensure_ascii=False)
     print(f"payload {os.path.getsize(tmp)//1024} KB → {title}")
