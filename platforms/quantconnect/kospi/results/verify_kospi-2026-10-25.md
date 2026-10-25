@@ -4,7 +4,7 @@
 
 **핵심 숫자**: 순이익 +130.8% (1,000만 → 23,080,043원), CAGR 18.0%, 샤프 0.767, 최대 낙폭 16.4%, 주문 2028건(청산 1014건, 승률 73%). 연도별(월 복리): 2021 -1.0% / 2022 +2.7% / 2023 +9.2% / 2024 -0.9% / 2025 +34.0% / 2026 +64.1%. 월 61개 중 플러스 25개, 월 중앙값 +0.00%, 상위 5개월이 합계의 90%.
 
-> 자체 검증 페이지: https://hyeongeonnoil.com/verified (4번 섹션)
+> 자체 검증 페이지: https://hyeongeonnoil.com/verified (4번 섹션) · 원본: https://www.quantconnect.cloud/backtest/70fa7a91b67ec15e87ad0c371cbe7e6d/?theme=darkly
 
 ## 요약 통계 (QuantConnect 집계, 통화 단위 원)
 | 항목 | 값 |
