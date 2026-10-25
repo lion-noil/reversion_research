@@ -15,3 +15,10 @@ NVIDIA Corporation/
 *_all.csv
 # 데이터 백업(.bak) 포함 데이터 폴더 전체
 data/
+
+# QuantConnect 브라우저 세션(쿠키)
+platforms/quantconnect/.qc_state.json
+platforms/quantconnect/login_fail.png
+platforms/quantconnect/results/
+platforms/quantconnect/shots/
+platforms/quantconnect/results/read_*.json
