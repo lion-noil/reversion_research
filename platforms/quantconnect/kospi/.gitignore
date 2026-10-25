@@ -1,0 +1,6 @@
+data/
+embed/
+shots/
+results/read_*.json
+results/run_*.log
+__pycache__/
